@@ -22,7 +22,6 @@ public class Gui extends JFrame {
 	//Create a gui for logging in
 	public void openLoginGUI() {	
 		login.addActionListener(a->{
-			System.out.println("Pressed login");
 			uic.attemptLogin();
 		});
 		frame = new JFrame("Login");
@@ -52,17 +51,14 @@ public class Gui extends JFrame {
 		frame.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		
 		customer.addActionListener(a->{
-			System.out.println("Open customer gui...");
 			uic.setMode(3);
 		});
 		
 		librarian.addActionListener(a->{
-			System.out.println("Open librarian gui...");
 			uic.setMode(2);
 		});
 		
 		admin.addActionListener(a->{
-			System.out.println("Open admin gui...");
 			uic.setMode(1);
 		});
 	}
@@ -73,7 +69,8 @@ public class Gui extends JFrame {
 		frame.setVisible(false);
 		frame = null;
 	}
-
+	
+	//create a gui for the admin mode
 	public void openAdminGUI() {
 		frame = new JFrame("Admin");
 		frame.setSize(500,500);
@@ -116,8 +113,8 @@ public class Gui extends JFrame {
 			createPopupForm(target);
 		});	
 	}
-		
-
+	
+	
 	private void createPopupForm(String target) {
 		ArrayList<String> employeData = uic.sqlh.getDataFromEmployeAsArrList(target);
 		ArrayList<TextField> tele = new ArrayList<TextField>();
